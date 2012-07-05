@@ -1,5 +1,6 @@
 import XMonad
 import XMonad.Config.Gnome
+import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageHelpers
 import qualified Data.Map as M
 
@@ -8,6 +9,7 @@ main = xmonad gnomeConfig
          --, terminal = "urxvt"
          , keys = \c -> mykeys c `M.union` keys gnomeConfig c
          , manageHook = manageHook gnomeConfig <+> composeOne [ isFullscreen -?> doFullFloat ]
+         , handleEventHook = fullscreenEventHook
          }
   where
     mykeys (XConfig {modMask = modm}) = M.fromList $

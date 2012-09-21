@@ -19,4 +19,5 @@ main = xmonad gnomeConfig
     mykeys (XConfig {modMask = modm}) = M.fromList $
          [ ((modm , xK_x), spawn "gnome-screensaver-command --lock")
          , ((modm , xK_o), spawn "google-chrome")
+         , ((modm , xK_i), spawn "emacsclient -c")
          ]
